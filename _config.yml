@@ -1,0 +1,3 @@
+# Include the bundled JavaScript libraries when publishing with GitHub Pages.
+include:
+  - vendor

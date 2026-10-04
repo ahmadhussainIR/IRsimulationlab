@@ -1,0 +1,113 @@
+ASSET abdomen-ap.png
+Use case: scientific-educational.
+Asset type: synthetic grayscale fluoroscopic background for an interventional radiology teaching simulator.
+Style/medium: convincingly photorealistic radiographic acquisition, not illustration or diagram. Square approximately 1024 by 1024 pixels, flat-panel low-dose fluoroscopy texture, realistic fine quantum noise and soft tissue attenuation, white/gray bones on medium-gray body.
+Constraints: synthetic educational image, not an actual patient. No text, labels, letters, numbers, watermark, UI, border, contrast agent, catheters, wires, devices, colored elements, or anatomy annotations.
+Primary request: AP abdominal radiograph covering diaphragm to proximal femurs. Anatomically realistic lumbar spine centered vertically, pelvis occupying lower third, lower ribs entering upper corners, subtle psoas muscles and soft tissue shadows and bowel gas. Entire pelvis and both proximal femurs visible. Natural overlapping projected anatomy and realistic radiographic grayscale density.
+
+ASSET chest-ap.png
+Use case: scientific-educational.
+Asset type: synthetic grayscale fluoroscopic background for an interventional radiology teaching simulator.
+Style/medium: convincingly photorealistic radiographic acquisition, not illustration or diagram. Square approximately 1024 by 1024 pixels, flat-panel low-dose fluoroscopy texture, realistic fine quantum noise and soft tissue attenuation, white/gray bones on medium-gray body.
+Constraints: synthetic educational image, not an actual patient. No text, labels, letters, numbers, watermark, UI, border, contrast agent, catheters, wires, devices, colored elements, or anatomy annotations.
+Primary request: AP chest radiograph covering clavicles to diaphragms. Anatomically realistic bilateral ribs, darker aerated lungs with subtle pulmonary vascular markings, central mediastinum and heart silhouette and thoracic spine. Symmetric frontal projection, both lungs and diaphragms visible, realistic radiographic grayscale density.
+
+ASSET thigh-ap.png
+Use case: scientific-educational.
+Asset type: synthetic grayscale fluoroscopic background for an interventional radiology teaching simulator.
+Style/medium: convincingly photorealistic radiographic acquisition, not illustration or diagram. Square approximately 1024 by 1024 pixels, flat-panel low-dose fluoroscopy texture, realistic fine quantum noise and soft tissue attenuation, white/gray bones on medium-gray body.
+Constraints: synthetic educational image, not an actual patient. No text, labels, letters, numbers, watermark, UI, border, contrast agent, catheters, wires, devices, colored elements, or anatomy annotations.
+Primary request: unilateral upper thigh and femoral region AP fluoroscopic crop. Anatomically realistic proximal femur with head, neck, greater and lesser trochanters leading into upper femoral shaft, femur slightly right of center. A small portion of adjacent hip pelvis near the top, subtle soft tissue envelope, natural overlapping projected anatomy, realistic radiographic grayscale density.
+
+ASSET axial-abdomen-ct.png
+Use case: scientific-educational.
+Asset type: synthetic axial abdominal CT background for an interventional radiology teaching simulator.
+Primary request: one anatomically realistic axial abdominal CT slice at the level of the liver and kidneys. Oval adult torso centered, vertebral body at posterior lower center, patient right on image left, liver on image left, kidneys posterior laterally on both sides, realistic surrounding abdominal organs and fat planes.
+Style/medium: photorealistic medical CT acquisition in grayscale soft-tissue window, subtle realistic imaging noise and attenuation, square approximately 1024 by 1024 pixels. Convincing diagnostic scan appearance rather than illustration or diagram.
+Constraints: synthetic educational image, not a real patient. No annotations, text, patient labels, UI, devices, catheters, needles, colored elements, lesion markers, targeting marks, watermark, or border.
+
+ASSET knee-ap.png
+Use case: scientific-educational.
+Asset type: synthetic AP knee fluoroscopic background for a genicular artery embolization teaching simulator.
+Primary request: anatomically believable AP knee radiograph showing the distal femoral shaft and condyles, patella superimposed naturally, knee joint space, tibial plateau, proximal tibial shaft, fibular head and proximal fibular shaft. Frontal projection, knee centered, sufficient distal femur above and proximal tibia below.
+Style/medium: photorealistic grayscale radiographic acquisition with fine low-dose fluoroscopic noise and realistic soft-tissue attenuation. White to light gray bones in medium-gray surrounding soft tissues, darker peripheral background. Square approximately 1024 by 1024 pixels. Convincing actual imaging texture, not illustration or diagram.
+Constraints: synthetic educational background, not a real patient. No devices, instruments, implants, catheters, wires, contrast agent, text, labels, numbers, UI, overlays, anatomical annotations, colored elements, watermark, or border.
+
+ASSET ir-suite-hero.png
+Use case: photorealistic-natural.
+Asset type: wide hero photograph for a Welcome to Interventional Radiology educational page.
+Primary request: a modern hospital interventional radiology procedure suite. A realistic ceiling-mounted C-arm imaging system curves around a narrow procedure table carrying a fully draped training mannequin, visible only as a subtle body form under clean blue sterile drapes. Wall cabinets, orderly clinical equipment, and a glass control-room window in the background. No people.
+Style/medium: photorealistic architectural and clinical photography, convincing modern hospital equipment and materials. Wide landscape composition approximately 16:9. Clean soft clinical lighting, restrained white and pale blue palette. Table and C-arm are focal points, with uncluttered composition suitable for a website hero.
+Constraints: synthetic educational setting using a training mannequin, not a real patient. No text, labels, readable monitor content, signage, logos, watermark, or people.
+
+ASSET pleural-ultrasound.png
+Use case: scientific-educational.
+Asset type: synthetic B-mode ultrasound background for a pleural fluid teaching simulator.
+Primary request: realistic grayscale B-mode ultrasound showing a pleural fluid collection in a longitudinal intercostal view. Clearly anechoic dark fluid pocket above a bright curved diaphragm, adjacent compressed lung tissue, liver-like speckled parenchyma below the diaphragm, and rib cortex with convincing posterior acoustic shadows at the upper lateral edges. Plausible layered chest wall at the top, anatomical ultrasound acoustic texture at depth.
+Style/medium: convincing raw ultrasound acquisition, characteristic granular speckle, grayscale echogenic tissue interfaces and dark fluid. Square image approximately 1024 by 1024 pixels, close acoustic field occupying the canvas. Must look distinctly like B-mode sonography, not an X-ray or CT.
+Constraints: wholly synthetic educational image, not a real patient image. No text, patient labels, numbers, measurements, calipers, annotations, depth scale, UI, needles, catheters, instruments, colored Doppler elements, logos, or watermark.
+
+ASSET ir-resident-cutout.png
+Use case: photorealistic-natural.
+Asset type: full-length photographic character cutout sprite for a 3D educational hospital scene.
+Style/medium: photorealistic studio-quality human portrait, natural adult anatomy and realistic fabric, front three-quarter view, neutral diffuse hospital lighting. One standing adult person, entire body including both shoes visible, generous transparent margin around every edge. Gloved hands relaxed slightly forward, natural relaxed posture with feet comfortably spaced.
+Constraints: genuinely transparent background with preserved alpha, no backdrop, no floor, no shadow plane, no text, lettering, logos, watermark, equipment, or other people. Synthetic adult character, not an identifiable real person. Flat photographic sprite, not a rigged model.
+Primary request: adult male interventional radiology resident wearing blue surgical scrubs, blue surgical cap, light blue surgical face mask, fitted dark blue lead apron, light surgical gloves, and clean closed-toe hospital shoes. Realistic natural adult proportions, clear complete silhouette.
+
+ASSET ir-nurse-cutout.png
+Use case: photorealistic-natural.
+Asset type: full-length photographic character cutout sprite for a 3D educational hospital scene.
+Style/medium: photorealistic studio-quality human portrait, natural adult anatomy and realistic fabric, front three-quarter view, neutral diffuse hospital lighting. One standing adult person, entire body including both shoes visible, generous transparent margin around every edge. Gloved hands relaxed slightly forward, natural relaxed posture with feet comfortably spaced.
+Constraints: genuinely transparent background with preserved alpha, no backdrop, no floor, no shadow plane, no text, lettering, logos, watermark, equipment, or other people. Synthetic adult character, not an identifiable real person. Flat photographic sprite, not a rigged model.
+Primary request: adult female interventional radiology nurse wearing purple surgical scrubs, purple surgical cap, light blue surgical face mask, fitted dark purple lead apron, light surgical gloves, and clean closed-toe hospital shoes. Realistic natural adult proportions, clear complete silhouette.
+
+ASSET clinical-suite.png
+Use case: compositing.
+Asset type: wide photorealistic clinical scene for an interventional radiology training simulator.
+Input image: the supplied IR suite image is the edit target and hospital-style reference. Preserve its realistic clean modern hospital aesthetic, clinical lighting, white equipment, cabinets and lead-glass control-room atmosphere while recomposing the scene to the following requirements.
+Primary request: a landscape 1536 by 1024 image of a real-looking interventional radiology procedure suite. Replace the draped mannequin form with a natural, realistically proportioned synthetic adult patient lying supine on the procedure table. The adult patient's face is visible at the head end, calm with eyes closed; chest, pelvis and legs are fully covered by sterile teal drapes. A small, clinically modest right-groin access fenestration exposes only a small patch of skin; no genitals, wounds, blood or gore. The patient must look photographic, not plastic or cartoonish.
+Composition: two clearly visible unobstructed blank black monitors with frontal, rectangular screen faces facing the camera. One large SQUARE imaging monitor in the UPPER LEFT region, and one smaller WIDESCREEN vital-sign monitor in the UPPER RIGHT region. Leave both entire black display interiors unobstructed with no reflections or content, suitable for later UI overlays. Avoid overlap of monitors with C-arm or equipment. Show realistic C-arm, procedure table, sterile trolley, anesthesia equipment, and lead-glass shielding/control room. No staff: characters will be overlaid separately. Keep the patient and draped table visible in the central/lower part of the composition.
+Constraints: photorealistic photograph texture with coherent adult anatomy and equipment scale. Synthetic educational scene, not a real patient. No text, labels, logos, numbers, UI content, watermarks, extra monitors with visible content, or staff.
+
+ASSET wire-hands.png
+Use case: photorealistic-natural.
+Asset type: transparent first-person photographic hands overlay for an interventional radiology education simulator.
+Primary scene: camera looks down at the wearer's own two adult hands, both in pale surgical gloves, blue sterile gown cuffs entering from the bottom left and bottom right corners. Full hands and cuffs visible. Anatomically authentic fingers and natural procedural grip, no detached fingers. Wide landscape aspect ratio approximately 3:2. Soft neutral clinical lighting, crisp photographic detail.
+Constraints: genuinely transparent background with alpha, no patient, room, tabletop, backdrop, floor, text, labels, logo, watermark, blood, or additional hands. Exactly two hands. Synthetic teaching illustration with photorealistic appearance.
+Action: the thumbs and index fingers manipulate a very fine flexible guidewire and a small blue cylindrical torque device near the center. One hand stabilizes the guidewire and the other holds the small blue torque device mounted on the wire, credible ergonomic position. Fine wire extends visibly across the central space.
+
+ASSET syringe-hands.png
+Use case: photorealistic-natural.
+Asset type: transparent first-person photographic hands overlay for an interventional radiology education simulator.
+Primary scene: camera looks down at the wearer's own two adult hands, both in pale surgical gloves, blue sterile gown cuffs entering from the bottom left and bottom right corners. Full hands and cuffs visible. Anatomically authentic fingers and natural procedural grip, no detached fingers. Wide landscape aspect ratio approximately 3:2. Soft neutral clinical lighting, crisp photographic detail.
+Constraints: genuinely transparent background with alpha, no patient, room, tabletop, backdrop, floor, text, labels, logo, watermark, blood, or additional hands. Exactly two hands. Synthetic teaching illustration with photorealistic appearance.
+Action: both hands hold a clear medical contrast syringe at center. One hand stabilizes the transparent barrel while the other hand's thumb presses on the plunger, authentic ergonomic syringe grip. Clear barrel contains colorless liquid, no markings. Syringe has a short safe connector tip, no exposed needle and no piercing of anything.
+
+
+ASSET flexible-suite.png
+Use case: precise-object-edit.
+Edit the supplied clinical-suite.png. Preserve the SAME photorealistic hospital style, same calm adult patient with visible face lying supine on the same table, same teal drapes and overall camera viewpoint. Reconfigure only the room equipment and background: move the C-arm to the FAR/RIGHT side of the patient in the upper-right area, leaving the left side and foreground more open. The exam light must be ceiling-mounted. Through the glass control-room window show ONLY TWO workstation monitors total and a clearly visible glass access door with handle; replace the current wall of computers with a clean two-monitor workstation. REMOVE both large black display screens hanging in the foreground room, including their visible screen assemblies, leaving open space for later draggable screen overlays. REMOVE the instrument trolley at the left completely, leaving open floor for a later draggable tray. Retain realistic anesthesia equipment, cabinets and glass shielding. No staff, text, labels or logos. Landscape 1536x1024. Synthetic educational scene, no gore.
+
+ASSET resident-walk.png
+Use case: identity-preserve.
+Edit the supplied clinician cutout into an animation sprite sheet, preserving this exact adult person's identity, face, cap, mask, scrubs, gloves and shoes. Add a fitted lead thyroid collar and subtle small white embroidered IR icon on the lead apron.
+Output: exactly FOUR columns by TWO rows, eight equal rectangular cells, overall canvas 2048x1536 with each cell 512x768. Each cell contains exactly ONE isolated FULL-BODY figure including both shoes, consistent camera, body scale, lighting, and baseline. Figure centered inside its cell with transparent margin, no limbs crossing cell boundaries. No visible grid lines or labels. Genuine transparent background with alpha; no scenery, floor, shadows or backdrop.
+Animation: eight chronological phases of one natural adult walking cycle moving to the VIEWER'S RIGHT, reading left-to-right on first row then second row. Right-facing three-quarter side view throughout, realistic alternating leg strides and subtle natural arm counter-swing, stance and passing poses. Consistent clothing and anatomy across all eight poses. Photorealistic photographic cutouts, not cartoon, not a rigged 3D model. No text except the tiny embroidered IR apron icon.
+Character-specific invariant: preserve the male resident in blue scrubs and dark blue lead apron.
+
+ASSET nurse-walk.png
+Use case: identity-preserve.
+Edit the supplied clinician cutout into an animation sprite sheet, preserving this exact adult person's identity, face, cap, mask, scrubs, gloves and shoes. Add a fitted lead thyroid collar and subtle small white embroidered IR icon on the lead apron.
+Output: exactly FOUR columns by TWO rows, eight equal rectangular cells, overall canvas 2048x1536 with each cell 512x768. Each cell contains exactly ONE isolated FULL-BODY figure including both shoes, consistent camera, body scale, lighting, and baseline. Figure centered inside its cell with transparent margin, no limbs crossing cell boundaries. No visible grid lines or labels. Genuine transparent background with alpha; no scenery, floor, shadows or backdrop.
+Animation: eight chronological phases of one natural adult walking cycle moving to the VIEWER'S RIGHT, reading left-to-right on first row then second row. Right-facing three-quarter side view throughout, realistic alternating leg strides and subtle natural arm counter-swing, stance and passing poses. Consistent clothing and anatomy across all eight poses. Photorealistic photographic cutouts, not cartoon, not a rigged 3D model. No text except the tiny embroidered IR apron icon.
+Character-specific invariant: preserve the female nurse in purple scrubs and dark purple lead apron.
+
+ASSET working-resident.png
+Use case: identity-preserve.
+Edit the supplied full-body clinician cutout, preserving the exact same adult person's face, mask, surgical cap, scrubs, lead apron, gloves, and shoes. Add matching fitted lead thyroid collar and a subtle tiny white embroidered IR icon on apron. One single full-body photographic figure only, standing three-quarter toward viewer's right, both shoes and all hands visible with generous transparent margins, natural adult proportions and anatomically correct hands. Change pose to working: looking slightly down at hands held forward at waist height, focused professional posture. Genuine transparent background with alpha, no background, floor, shadows, colored halo or stray speckles. No text except tiny embroidered IR apron icon, no patient, table, or other people. 1024x1536 portrait.
+Action: male resident in blue scrubs delicately manipulates a fine guidewire with a small blue torque device between gloved thumbs and index fingers.
+
+ASSET working-nurse.png
+Use case: identity-preserve.
+Edit the supplied full-body clinician cutout, preserving the exact same adult person's face, mask, surgical cap, scrubs, lead apron, gloves, and shoes. Add matching fitted lead thyroid collar and a subtle tiny white embroidered IR icon on apron. One single full-body photographic figure only, standing three-quarter toward viewer's right, both shoes and all hands visible with generous transparent margins, natural adult proportions and anatomically correct hands. Change pose to working: looking slightly down at hands held forward at waist height, focused professional posture. Genuine transparent background with alpha, no background, floor, shadows, colored halo or stray speckles. No text except tiny embroidered IR apron icon, no patient, table, or other people. 1024x1536 portrait.
+Action: female nurse in purple scrubs prepares a clear contrast syringe, one gloved hand stabilizing barrel and the other on the plunger; short safe connector tip, no needle.
