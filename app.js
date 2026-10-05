@@ -20,7 +20,7 @@ const media=matchMedia('(prefers-reduced-motion: reduce)');$('reduceMotion').che
 document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-view]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',x===b)});RadiologyViewer.configure('mode',b.dataset.view)});
 $('windowLevel').oninput=e=>RadiologyViewer.configure('window',Number(e.target.value));
 $('zoomImage').onchange=e=>RadiologyViewer.configure('zoom',Number(e.target.value));
-$('contrastRun').onclick=()=>RadiologyViewer.inject();
+$('contrastRun').onclick=()=>{if(['gae','pae'].includes(current.id)&&window.IRNavigation?.inject({preview:$('suite').hidden})===false)return;RadiologyViewer.inject();};
 $('annotations').onchange=e=>RadiologyViewer.configure('labels',e.target.checked);
 RadiologyViewer.configure('grain',!media.matches);
 window.IRLab={getCurrent:()=>current,getProgress:()=>progress,isPlaying:()=>playing,select:selectProcedure,show:showSection,seek(value){stop();progress=Math.max(0,Math.min(1,value));update()},togglePlay(){ $('play').click() },reset(){ $('reset').click() }};

@@ -1,0 +1,30 @@
+.device-bench{margin:0;background:#e5edf3;color:#173348;border-top:1px solid #cddce6}
+.bench-stage{position:relative;isolation:isolate;min-width:0;background:radial-gradient(ellipse at 48% 38%,#f0f5f8,#d7e3ec)}
+.bench-canvas{height:clamp(310px,49vh,580px);width:100%;touch-action:none;outline-offset:-4px;cursor:grab}
+.bench-canvas:active{cursor:grabbing}.bench-canvas:focus-visible{outline:2px solid #147fba}
+.bench-canvas canvas{display:block;width:100%;height:100%}
+.bench-topline{position:absolute;z-index:2;inset:20px 24px auto;display:flex;align-items:center;justify-content:space-between;gap:14px;pointer-events:none;font:600 10px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.13em;color:#426277}
+.bench-topline>span:first-child{display:flex;align-items:center;gap:8px;color:#21485e}
+.bench-topline i{width:6px;height:6px;border-radius:50%;background:#2d8da1;box-shadow:0 0 0 4px #28889a15}
+.bench-topline>span:last-child{font:500 11px/1.5 system-ui,sans-serif;letter-spacing:0}
+.bench-motion-indicator{position:absolute;bottom:22px;left:24px;display:flex;gap:9px;align-items:center;color:#466176;pointer-events:none}
+.bench-motion-indicator span{width:23px;height:3px;border-radius:2px;background:#188795;transform-origin:left;animation:bench-signal 2.8s ease-in-out infinite}
+.bench-motion-indicator b{font:500 9px/1 ui-monospace,SFMono-Regular,monospace;letter-spacing:.13em}
+.bench-paused .bench-motion-indicator span{animation-play-state:paused;background:#8ea6b8}
+.bench-controls{padding:24px;background:#f6f9fb;border-top:1px solid #d0dee8;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 24px}
+.bench-motion-copy{display:flex;flex-direction:column;gap:5px}
+.bench-kicker{font:650 9px/1.3 ui-monospace,SFMono-Regular,monospace;color:#647d8d;letter-spacing:.14em}
+.bench-motion-name{font:600 19px/1.35 system-ui,sans-serif;letter-spacing:-.025em;color:#19394d}
+.bench-detail{font:400 12px/1.6 system-ui,sans-serif;color:#5b7486}
+.bench-button-row{display:flex;align-items:center;gap:7px;align-self:center}
+.device-bench button{border:1px solid #c9d8e3;background:#fff;color:#2b5269;border-radius:7px;font:600 11px/1.25 system-ui,sans-serif;white-space:nowrap;min-height:38px;padding:10px 12px;box-shadow:0 1px 2px #213a4c08;transition:background .15s,border-color .15s}
+.device-bench button:hover{background:#e9f2f7;border-color:#8aabbf}.device-bench button:focus-visible{outline:2px solid #1988be;outline-offset:3px}
+.device-bench .bench-rotate-left,.device-bench .bench-rotate-right{font-size:22px;padding:3px 11px;font-weight:400}
+.device-bench .bench-play{min-width:104px;background:#173c53;color:#fff;border-color:#173c53}.device-bench .bench-play:hover{background:#215770}
+.bench-scrubber{display:grid;grid-template-columns:auto minmax(65px,1fr) 38px;align-items:center;gap:14px;grid-column:1/-1;font:500 11px/1.5 system-ui,sans-serif;color:#547284}
+.bench-scrubber input{min-width:0;width:100%;height:20px;margin:0;accent-color:#157f98;cursor:pointer}.bench-scrubber output{font:500 11px/1 ui-monospace,SFMono-Regular,monospace;text-align:right;color:#254c64}
+.bench-disclaimer{grid-column:1/-1;margin:0!important;color:#788d9b!important;font:400 10px/1.5 system-ui,sans-serif!important}
+.bench-unavailable{padding:36px;text-align:center;background:#edf3f7;color:#315368}.bench-unavailable strong{font-size:18px}.bench-unavailable p{font-size:13px;line-height:1.6;max-width:390px;margin:12px auto}
+@keyframes bench-signal{0%,100%{transform:scaleX(.45);opacity:.55}50%{transform:scaleX(1);opacity:1}}
+@media(max-width:680px){.bench-topline{inset:16px 16px auto}.bench-topline>span:last-child{max-width:95px;text-align:right;font-size:10px}.bench-controls{padding:20px 16px;grid-template-columns:1fr;gap:18px}.bench-button-row{justify-content:flex-start;flex-wrap:wrap}.bench-canvas{height:330px}.bench-motion-name{font-size:18px}.bench-motion-indicator{bottom:15px;left:16px}.bench-scrubber{gap:10px}}
+@media(prefers-reduced-motion:reduce){.bench-motion-indicator span{animation:none}.device-bench button{transition:none}}

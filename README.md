@@ -6,7 +6,7 @@ Plain HTML, CSS and JavaScript. No npm installation or build step required.
 ## Upload
 
 1. Extract IR-Lab-GitHub.zip.
-2. Open https://github.com/ahmadhussainIR/IR-suite-simulation-lab
+2. Open https://github.com/ahmadhussainIR/IRsimulationlab
 3. Click “uploading an existing file” if the repository is empty, or Add file → Upload files.
 4. Drag all extracted files and folders into the upload area. Upload the contents, not the ZIP or its enclosing folder. Keep assets/ and vendor/ intact. index.html must appear at the top level.
 5. Commit changes to main.
@@ -14,7 +14,7 @@ Plain HTML, CSS and JavaScript. No npm installation or build step required.
 ## Optional: publish on GitHub Pages
 
 Repository Settings → Pages → Source: Deploy from a branch → Branch: main → Folder: /(root) → Save.
-The usual website address will be https://ahmadhussainIR.github.io/IR-suite-simulation-lab/ after deployment succeeds.
+The usual website address will be https://ahmadhussainIR.github.io/IRsimulationlab/ after deployment succeeds.
 GitHub Pages publishes a website to the internet; uploading the source alone does not enable Pages.
 Pages availability for private repositories depends on your GitHub plan.
 
@@ -23,3 +23,23 @@ Pages availability for private repositories depends on your GitHub plan.
 ## Scope
 
 Generated synthetic images and photographic character sprites, curated vessel graphs, simplified device mechanics and synthetic vital signs. This is an educational prototype, not a clinically validated simulator. GAE and PAE support manual navigation; other procedures retain guided animations. No patient data is included. Image prompts are documented in IMAGE-PROMPTS.txt. Third-party Three.js licensing is included under vendor/.
+
+## Equipment redesign
+
+The procedure tray uses 39 distinct generated equipment illustrations with a synchronized selected-device inspector. Category filters apply to the catalog while the in-room trolley retains the full procedure kit. Every kit item is available in the navigation equipment selector.
+
+Use **Explore device in 3D** to rotate and zoom the selected model, play or pause its illustrative mechanical motion, or scrub to a particular position. Examples include syringe plunger travel, guidewire torque, catheter-tip articulation, balloon expansion and stent expansion. The viewer uses WebGL where available and software Canvas projection of the same models when it is unavailable. These visual demonstrations are separate from patient treatment and do not simulate calibrated device physics.
+
+Motion respects the operating system’s reduced-motion preference and the lab’s Reduce ambient motion setting on opening the viewer. All generated equipment sheets are under `assets/equipment/`; exact prompts are in `IMAGE-PROMPTS.txt`.
+
+The hand view uses the selected device’s own geometric model with neutral gloved hands. Device selection changes the rendered instrument; navigation, torque and injection animate that model.
+
+Validation: `node --test tests/*.test.cjs`.
+
+## Selective imaging and positioning
+
+GAE/PAE wire and microcatheter tips have independent positions. Advance the wire into a modeled branch, then select the microcatheter and advance along that route; the catheter cannot pass the wire. Retract both as needed to explore a different branch. Contrast originates from the catheter tip (or access origin when no catheter is tracked) and fills only connected downstream territory.
+
+The reference monitor captures a paired synthetic DSA/unsubtracted sequence during a DSA run. Replay or scrub the saved sequence independently from live imaging. Table and C-arm controls move separate photographic room layers and adjust the illustrative imaging field. The room uses 2D compositing; angulation is not a patient-specific 3D reconstruction.
+
+Navigation regression checks: `node --test tests/navigation.test.cjs`.
