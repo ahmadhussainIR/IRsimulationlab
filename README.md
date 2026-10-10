@@ -55,3 +55,9 @@ The GAE graph includes distal articular/cutaneous branches, DGA osteoarticular/s
 Contrast propagates from the acquired catheter tip with delayed tissue blush and washout; vessel widths vary by branch family. These are visual timings and illustrated paths, not calibrated hemodynamics or a patient-specific anatomical reconstruction. Collateral circulation is discussed but not exhaustively simulated. Synthetic treatment targets are now distal articular branches; skin and muscle branches have no target blush.
 
 Anatomical references: [Cadaveric and angiographic genicular study](https://pubmed.ncbi.nlm.nih.gov/34657976/), [Radiological anatomy of prostatic arteries](https://pubmed.ncbi.nlm.nih.gov/23244724/). Their findings inform branch families; numeric geometry and control angles are authored for this simulator.
+
+
+### Procedure-team animation (October 10)
+The clinical room now uses a photographic four-frame action sheet for the resident and scrub nurse. Hands align with the selected illustrative access point and follow table translation. Wire/catheter movement, torque, tool exchange and contrast trigger distinct room actions, with a replayable access scene and walking transitions to/from the control room. Navigation controls are unavailable while the team is away or walking. These are composited 2D animations; they do not simulate needle puncture mechanics or verify successful vascular access.
+
+Run `node --test tests/*.test.cjs` for navigation, equipment and team-action checks.
