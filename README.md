@@ -47,3 +47,11 @@ Navigation regression checks: `node --test tests/navigation.test.cjs`.
 ## Phone workstation
 
 At phone widths, use Room / Live / DSA / Vitals / Hands tabs. The selected monitor stays visible while navigating. Image zoom buttons and drag-to-pan inspect the same live or saved acquisition; this is display magnification, not a different acquisition. Touch controls, selectors, device dialogs and the procedure chooser fit portrait and landscape screens. Monitor copying is limited to 12.5 fps on phones and suspended on desktop or when the page is hidden.
+
+## Expanded anatomy and angiographic timing
+
+The GAE graph includes distal articular/cutaneous branches, DGA osteoarticular/saphenous/muscular branches and circumflex femoral exploration. Pelvic exploration adds bladder-wall, perineal, penile and lateral sacral branches. A selectable dual-origin PAE teaching example separates central-gland and peripheral-gland supply. The companion atlas highlights the currently viewed vessel and downstream territory without moving the wire.
+
+Contrast propagates from the acquired catheter tip with delayed tissue blush and washout; vessel widths vary by branch family. These are visual timings and illustrated paths, not calibrated hemodynamics or a patient-specific anatomical reconstruction. Collateral circulation is discussed but not exhaustively simulated. Synthetic treatment targets are now distal articular branches; skin and muscle branches have no target blush.
+
+Anatomical references: [Cadaveric and angiographic genicular study](https://pubmed.ncbi.nlm.nih.gov/34657976/), [Radiological anatomy of prostatic arteries](https://pubmed.ncbi.nlm.nih.gov/23244724/). Their findings inform branch families; numeric geometry and control angles are authored for this simulator.
