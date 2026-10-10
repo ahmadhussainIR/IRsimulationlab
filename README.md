@@ -43,3 +43,7 @@ GAE/PAE wire and microcatheter tips have independent positions. Advance the wire
 The reference monitor captures a paired synthetic DSA/unsubtracted sequence during a DSA run. Replay or scrub the saved sequence independently from live imaging. Table and C-arm controls move separate photographic room layers and adjust the illustrative imaging field. The room uses 2D compositing; angulation is not a patient-specific 3D reconstruction.
 
 Navigation regression checks: `node --test tests/navigation.test.cjs`.
+
+## Phone workstation
+
+At phone widths, use Room / Live / DSA / Vitals / Hands tabs. The selected monitor stays visible while navigating. Image zoom buttons and drag-to-pan inspect the same live or saved acquisition; this is display magnification, not a different acquisition. Touch controls, selectors, device dialogs and the procedure chooser fit portrait and landscape screens. Monitor copying is limited to 12.5 fps on phones and suspended on desktop or when the page is hidden.
