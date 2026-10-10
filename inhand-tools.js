@@ -106,15 +106,15 @@ function draw(now=performance.now(),force=false){
   if(injecting&&!wasInjecting)plunger=0;
   if(injecting)plunger=clamp(plunger+dt*.34,0,1);
   wasInjecting=injecting;
-  const gripMotion=active&&!reducedMotion.matches?Math.sin(phase*4.6)*5*direction:0;
-  const advancement=(Boolean(state.holding)||now<motionUntil)&&!reducedMotion.matches?Math.sin(phase*4.6)*9*direction:0;
+  const gripMotion=active&&!(reducedMotion.matches||document.getElementById('reduceMotion')?.checked)?Math.sin(phase*4.6)*5*direction:0;
+  const advancement=(Boolean(state.holding)||now<motionUntil)&&!(reducedMotion.matches||document.getElementById('reduceMotion')?.checked)?Math.sin(phase*4.6)*9*direction:0;
   const mechanical=tool==='syringe' ? plunger : (wires.has(tool)||catheters.has(tool)) ? .5 : 0;
   device.animate(mechanical);
   if(device.setTorque)device.setTorque(state.torque);
   // Held devices travel with the grip, while torque rotates the distal segment
   // and hub around the shaft, not the entire camera or pair of hands.
   wrapper.position.set(layout.x+advancement,310-layout.y,0);
-  wrapper.rotation.z=-.025+(injecting&&!reducedMotion.matches?Math.sin(phase*2)*.009:0);
+  wrapper.rotation.z=-.025+(injecting&&!(reducedMotion.matches||document.getElementById('reduceMotion')?.checked)?Math.sin(phase*2)*.009:0);
   renderer.lastFrame=-Infinity;renderer.render(scene,camera);
   context.clearRect(0,0,800,310);
   // Fingers occlude the actual selected geometry, creating a grasp instead of
@@ -136,6 +136,6 @@ function dispose(){
   canvas=null;context=null;state={...defaultState};lastTick=0;lastDraw=-Infinity;dirty=true;hiddenCleared=false;
 }
 
-window.IRInHand={mount,setTool,setState,draw,setHandLayout,dispose,getState:()=>({tool,...state,glovesReady:gloves.complete&&gloves.naturalWidth>0})};
+window.IRInHand={mount,setTool,setState,draw,setHandLayout,dispose,getDeviceFrame:()=>renderer&&device?{canvas:renderer.domElement,tool,profile:profile(tool)}:null,getState:()=>({tool,...state,glovesReady:gloves.complete&&gloves.naturalWidth>0})};
 if(mount())setTool(window.IRNavigation?.get()?.tool||'wire');
 export {mount,setTool,setState,draw,dispose};

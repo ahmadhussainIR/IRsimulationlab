@@ -61,3 +61,7 @@ Anatomical references: [Cadaveric and angiographic genicular study](https://pubm
 The clinical room now uses a photographic four-frame action sheet for the resident and scrub nurse. Hands align with the selected illustrative access point and follow table translation. Wire/catheter movement, torque, tool exchange and contrast trigger distinct room actions, with a replayable access scene and walking transitions to/from the control room. Navigation controls are unavailable while the team is away or walking. These are composited 2D animations; they do not simulate needle puncture mechanics or verify successful vascular access.
 
 Run `node --test tests/*.test.cjs` for navigation, equipment and team-action checks.
+
+
+### Imaging console and shared room devices
+The imaging console adds 3/7.5/15 synthetic pulses per second, adjustable rectangular shutters, display magnification, acquisition time/frame counters and paired raw/subtracted still-image capture. Shutters and zoom can change a held view without acquiring another image. Saved references retain their framing when the live settings change. Counters do not represent dose. The room now draws the same device geometry used by the in-hand view, including a replayable nurse-to-resident instrument handoff and independent staff motion during injection. The underlying room remains a 2D composition and the anatomical images remain synthetic.

@@ -4,12 +4,13 @@ const canvas=document.createElement('canvas');canvas.className='staff-action-lay
 const sheet=new Image();sheet.src='assets/staff-actions.png';
 const people=[room.querySelector('.clinician-resident'),room.querySelector('.clinician-nurse')];people.forEach(p=>p.hidden=true);
 const walk=['resident','nurse'].map(name=>{const im=new Image();im.src=`assets/${name}-walk.png`;return im});
-const bar=document.createElement('div');bar.className='staff-activity';bar.innerHTML='<div><strong id="staffAccess">Femoral access</strong><span id="residentAction"></span><span id="nurseAction"></span></div><button id="rehearseAccess">Replay access scene</button>';room.after(bar);
+const bar=document.createElement('div');bar.className='staff-activity';bar.innerHTML='<div><strong id="staffAccess">Femoral access</strong><span id="residentAction"></span><span id="nurseAction"></span></div><div class="staff-buttons"><button id="passInstrument">Pass selected instrument</button><button id="rehearseAccess">Replay access scene</button></div>';room.after(bar);
 const s={access:'Femoral',tool:'wire',accessUntil:0,exchangeUntil:0,moveUntil:0,torqueUntil:0,injectUntil:0,shielded:false,traveling:false,direction:1};
 let journey=null,last=0,previous=null,previousPose=null;
 function setup(access){s.access=access;s.accessUntil=performance.now()+6000;s.exchangeUntil=s.moveUntil=s.torqueUntil=s.injectUntil=0;previous=window.IRNavigation.get().position+window.IRNavigation.get().catheterPosition;}
 window.addEventListener('ir:access',e=>setup(e.detail.access));
 $('rehearseAccess').onclick=()=>setup(s.access);
+$('passInstrument').onclick=()=>{if(s.shielded||s.traveling)return;s.accessUntil=0;s.exchangeUntil=performance.now()+1600;};
 window.addEventListener('ir:tool-selected',e=>{if(s.tool!==e.detail){s.tool=e.detail;s.exchangeUntil=performance.now()+1600;s.accessUntil=0;}});
 window.addEventListener('ir:torque',()=>{s.torqueUntil=performance.now()+750;s.accessUntil=s.exchangeUntil=0;});
 window.addEventListener('ir:navigation',()=>{const n=window.IRNavigation.get(),value=n.position+n.catheterPosition;if(previous!==null&&value!==previous){s.direction=Math.sign(value-previous);s.moveUntil=performance.now()+1100;s.accessUntil=s.exchangeUntil=0;}previous=value;});
@@ -34,10 +35,20 @@ function drawDevice(a,kind,t,active){const f=motion.family(s.tool),pulse=active?
  }else if(f==='probe'){ctx.fillStyle='#e3e8e9';ctx.beginPath();ctx.ellipse(-1,-.3,1.1,.7,-.5,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#596a7b';ctx.lineWidth=.3;ctx.beginPath();ctx.moveTo(-1.8,-.5);ctx.quadraticCurveTo(-6,-5,-10,0);ctx.stroke();
  }else{ctx.strokeStyle=f==='wire'?'#ced5dc':'#efe2bb';ctx.lineWidth=f==='wire'?.12:.22;ctx.beginPath();ctx.moveTo(-.5,0);ctx.bezierCurveTo(-3, -.7-pulse*.25,-6, .4,-8,3+pulse*.5);ctx.stroke();if(kind==='torque'){ctx.save();ctx.translate(-2.8,-.3);ctx.rotate(Number($('wireTorque').value)*Math.PI/180);ctx.fillStyle='#529ecd';ctx.fillRect(-.65,-.35,1.3,.7);ctx.restore();}if(f==='needle'||kind==='access'){ctx.strokeStyle='#f1f6f6';ctx.lineWidth=.14;ctx.beginPath();ctx.moveTo(-3,-1);ctx.lineTo(0,0);ctx.stroke();ctx.fillStyle='#68b5d9';ctx.fillRect(-3.5,-1.25,.7,.5);}}
  ctx.restore();}
+function drawRoomInstrument(poses,act,t,reduced){
+ const device=window.IRInHand?.getDeviceFrame();
+ if(!device||device.tool!==s.tool||act.kind==='inject'||act.kind==='access'){drawDevice(poses[0].hand,act.kind,t,act.moving&&!reduced);return;}
+ const a=poses[0].hand,b=poses[1].hand,passing=act.kind==='exchange',progress=passing?Math.max(0,Math.min(1,1-(s.exchangeUntil-t)/1600)):1,ease=progress*progress*(3-2*progress);
+ const x=passing?b[0]+(a[0]-b[0])*ease:a[0],y=passing?b[1]+(a[1]-b[1])*ease-Math.sin(progress*Math.PI)*1.5:a[1],p=device.profile;
+ const width=['particles','evoh','nbca','oil'].includes(s.tool)?2.5:s.tool==='ultrasound'?4:['wire','hydrophilic','microwire'].includes(s.tool)?10:8,height=width*p.height/p.width*1.5;
+ ctx.save();ctx.shadowColor='#10292c66';ctx.shadowBlur=2;
+ ctx.drawImage(device.canvas,p.x-p.width/2-12,p.y-p.height/2-12,p.width+24,p.height+24,x-width+.5,y-height/2,width,height);ctx.restore();
+ if(!passing){ctx.fillStyle='#72bfca';ctx.fillRect(a[0]-.45,a[1]-.2,.65,.4);}
+}
 function render(t){requestAnimationFrame(render);if(document.hidden||$('suite').hidden||t-last<1000/24)return;last=t;
 if(journey&&t-journey.start>=4800){journey=null;s.traveling=false;previousPose=poses(t);}
 const n=window.IRNavigation.get();s.holding=n.holding;s.delivering=n.delivering;s.injecting=t<s.injectUntil;s.playing=window.IRLab.isPlaying();const act=motion.action(s,t);room.dataset.staffAction=act.kind;room.dataset.staffAccess=s.access;
-$('staffAccess').textContent=s.access+' · '+(s.shielded?'Control room':'Procedure team');$('residentAction').textContent='Resident · '+act.resident;$('nurseAction').textContent='Scrub nurse · '+act.nurse;$('rehearseAccess').disabled=s.shielded||s.traveling;
+$('staffAccess').textContent=s.access+' · '+(s.shielded?'Control room':'Procedure team');$('residentAction').textContent='Resident · '+act.resident;$('nurseAction').textContent='Scrub nurse · '+act.nurse;$('rehearseAccess').disabled=s.shielded||s.traveling;$('passInstrument').disabled=s.shielded||s.traveling;
 const r=room.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2),w=Math.round(r.width*d),h=Math.round(r.height*d);if(!w||!h)return;if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}ctx.setTransform(w/100,0,0,h/100,0,0);ctx.clearRect(0,0,100,100);
 if(!$('showTeam').checked)return;
 const target=poses(t);if(!previousPose)previousPose=target;const reduced=$('reduceMotion').checked||matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -45,7 +56,7 @@ if(journey){const p=Math.min(1,(t-journey.start)/4800),q=journey.out?p:1-p;for(l
 if(s.shielded){people.forEach((im,i)=>{if(im.complete&&im.naturalWidth)ctx.drawImage(im,30+i*7,27,8,18)});return;}
 // Smooth repositioning keeps the staff attached to a moving table without snapping.
 previousPose=target.map((p,i)=>({width:p.width,hand:p.hand.map((v,j)=>previousPose[i].hand[j]+(v-previousPose[i].hand[j])*.25)}));
-const f=motion.frame(t,act.moving,reduced);drawPerson(previousPose[1],1,f);drawPerson(previousPose[0],0,f);drawDevice(previousPose[0].hand,act.kind,t,act.moving&&!reduced);
+const residentFrame=motion.frame(t,act.moving&&act.kind!=='inject',reduced),nurseFrame=motion.frame(t*.75+300,act.moving,reduced);drawPerson(previousPose[1],1,nurseFrame);drawPerson(previousPose[0],0,residentFrame);drawRoomInstrument(previousPose,act,t,reduced);
 }
 requestAnimationFrame(render);
 })();
