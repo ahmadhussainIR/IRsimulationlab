@@ -65,3 +65,12 @@ Run `node --test tests/*.test.cjs` for navigation, equipment and team-action che
 
 ### Imaging console and shared room devices
 The imaging console adds 3/7.5/15 synthetic pulses per second, adjustable rectangular shutters, display magnification, acquisition time/frame counters and paired raw/subtracted still-image capture. Shutters and zoom can change a held view without acquiring another image. Saved references retain their framing when the live settings change. Counters do not represent dose. The room now draws the same device geometry used by the in-hand view, including a replayable nurse-to-resident instrument handoff and independent staff motion during injection. The underlying room remains a 2D composition and the anatomical images remain synthetic.
+
+### Regional anatomy explorer
+The anatomy explorer is available from every procedure and includes seven reference regions: knee, pelvis, liver, kidneys, thigh, aortoiliac access and upper-limb access. Select a vessel in the map or searchable list, inspect its connected branches, focus the view and toggle bone/organ context, landmarks and the selected terminal territory. The hepatic map includes typical branching plus example replaced right hepatic and left hepatic origins; the renal map shows both kidneys and an illustrative segmental branching pattern. Each region links to its anatomical reference.
+
+In GAE and PAE, **Show current device** locates the existing navigation field and the map distinguishes wire and catheter positions. Browsing the atlas or changing a reference variant never moves a device or changes a procedure's navigation graph. The hepatic and renal maps are reference illustrations; they do not add manual wire navigation to those procedures.
+
+All coordinates, organ outlines, projections and territory highlights are authored illustrations. They are not patient reconstructions, measured anatomy, comprehensive variant catalogs or calibrated perfusion models. Connection paths copied from the navigation model can follow an access route; their direction must not be interpreted as physiological blood flow. The knee context image is aligned with the modeled lateral branch side.
+
+Anatomy data checks: `node --test tests/anatomy.test.cjs`. These check graph integrity, hepatic origin variants, bilateral renal branch families, regional filtering and isolation from procedure/device state.
